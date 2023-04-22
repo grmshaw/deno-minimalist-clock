@@ -23,7 +23,7 @@ body {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  border: 3px solid #4a90e2; /* Vibrant blue border color */
+  border: 3px solid #505050; /* Vibrant blue border color */
   position: relative;
   margin-bottom: 20px;
 }
@@ -38,19 +38,20 @@ body {
 .hour-hand {
   width: 6px;
   height: 32%;
-  background: #4a90e2; /* Vibrant blue color */
+  background: #505050; /* Vibrant blue color */
   transform: rotate(0deg) translateX(-50%);
 }
 
 .minute-hand {
   width: 2px;
   height: 45%;
-  background: #4a90e2; /* Vibrant blue color */
+  background: #505050; /* Vibrant blue color */
   transform: rotate(0deg) translateX(-50%);
 }
 
 .clock {
   font-size: 100px;
   font-weight: bold;
-  color: #4a90e2; /* Vibrant blue color */
+  color: #505050; /* Vibrant blue color */
+  margin-top: 0.3em;
 }
