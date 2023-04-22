@@ -12,9 +12,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #FAFAFA; /* Background color for the container */
+  background-color: #FAFAFA;
   padding: 50px 220px;
-  border: 1px solid #e0e0e0; /* Lighter border color */
+  border: 1px solid #e0e0e0;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -23,7 +23,7 @@ body {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  border: 3px solid #505050; /* Vibrant blue border color */
+  border: 3px solid #505050;
   position: relative;
   margin-bottom: 20px;
 }
@@ -32,20 +32,20 @@ body {
   position: absolute;
   bottom: 50%;
   left: 50%;
-  transform-origin: 50% calc(100% - 2.5px); /* Adjusted transform-origin */
+  transform-origin: 23% calc(92% - 2.5px);
 }
 
 .hour-hand {
   width: 6px;
   height: 32%;
-  background: #505050; /* Vibrant blue color */
+  background: #505050;
   transform: rotate(0deg) translateX(-50%);
 }
 
 .minute-hand {
   width: 2px;
   height: 45%;
-  background: #505050; /* Vibrant blue color */
+  background: #505050;
   transform: rotate(0deg) translateX(-50%);
 }
 
