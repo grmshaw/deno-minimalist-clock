@@ -1,5 +1,5 @@
 body {
-  background-color: #f0f4f8; /* Lighter background color */
+  background-color: #f0f4f8;
   font-family: Arial, sans-serif;
 }
 
@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff; /* Background color for the container */
+  background-color: #FAFAFA; /* Background color for the container */
   padding: 50px 220px;
   border: 1px solid #e0e0e0; /* Lighter border color */
   border-radius: 10px;
@@ -20,8 +20,8 @@ body {
 }
 
 .clock-face {
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   border: 3px solid #4a90e2; /* Vibrant blue border color */
   position: relative;
@@ -37,7 +37,7 @@ body {
 
 .hour-hand {
   width: 6px;
-  height: 40%;
+  height: 32%;
   background: #4a90e2; /* Vibrant blue color */
   transform: rotate(0deg) translateX(-50%);
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .clock {
-  font-size: 62px;
+  font-size: 100px;
   font-weight: bold;
   color: #4a90e2; /* Vibrant blue color */
 }
