@@ -13,72 +13,19 @@ router.get("/static/:filename", async (context) => {
   }
 });
 
-const html = `
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Clock Minimal</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="icon" href="/static/favicon.png">
-  </head>
-<body>
-  <div class="clock-container">
-    <!-- Clock face with hour and minute hands -->
-    <div class="clock-face">
-      <div class="hand hour-hand" id="hourHand"></div>
-      <div class="hand minute-hand" id="minuteHand"></div>
-    </div>
-    <!-- Display the current time -->
-    <div class="clock" id="clock"></div>
-  </div>
-  <script>
-    ${`
-    // Function to update the clock
-    function updateClock() {
-      // Get the current date and time in the Asia/Shanghai time zone
-      const options = { timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-      const shanghaiTime = new Date().toLocaleTimeString('en-US', options);
-
-      // Update the clock element with the current time
-      document.getElementById('clock').textContent = shanghaiTime;
-
-      // Get the current hour and minute
-      const currentHour = new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai', hour: 'numeric', hour12: false });
-      const currentMinute = new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai', minute: 'numeric' });
-
-      // Calculate the rotation angles for the hour and minute hands
-      const hourRotation = (currentHour % 12) * 30 + (currentMinute / 60) * 30;
-      const minuteRotation = currentMinute * 6;
-
-      // Update the rotation of the hour and minute hands
-      document.getElementById('hourHand').style.transform = \`rotate(\${hourRotation}deg) translateX(-50%)\`;
-      document.getElementById('minuteHand').style.transform = \`rotate(\${minuteRotation}deg) translateX(-50%)\`;
-    }
-
-    // Update the clock immediately
-    updateClock();
-
-    // Update the clock every second
-    setInterval(updateClock, 1000);
-
-    // Schedule a page reload every 3 minutes (180000 milliseconds)
-    setTimeout(function() {
-      location.reload();
-    }, 180000);
-    `}
-  </script>
-</body>
-</html>
-`;
+// Read index.html
+async function readIndexHtml() {
+  const decoder = new TextDecoder("utf-8");
+  const data = await Deno.readFile("./index.html");
+  return decoder.decode(data);
+}
 
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.use((ctx) => {
+app.use(async (ctx) => {
   ctx.response.headers.set("Content-Type", "text/html");
-  ctx.response.body = html;
+  ctx.response.body = await readIndexHtml();
 });
 
 console.log("Server running on http://localhost:8000");
